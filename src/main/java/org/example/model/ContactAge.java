@@ -1,9 +1,10 @@
-package org.example;
+package org.example.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.example.model.Contact;
 
 import java.util.Objects;
 
@@ -39,8 +40,5 @@ public class ContactAge extends Contact {
 //        return false;
 //    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), age);
-    }
+
 }
