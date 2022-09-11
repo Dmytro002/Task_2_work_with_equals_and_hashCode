@@ -1,11 +1,9 @@
-package org.example;
+package org.example.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -21,6 +19,7 @@ public class Contact {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
    //TODO Symmetry violation
 
 //    @Override
@@ -50,7 +49,7 @@ public class Contact {
 //        return false;
 //    }
    //TODO for transitivity
-    
+
 //    @Override
 //    public boolean equals(Object o) {
 //       if(o instanceof Contact && o != null){
@@ -61,10 +60,18 @@ public class Contact {
 //    }
 
 
+//    @Override
+//    public int hashCode() {
+//        return 0;
+//    }
 
 
-    @Override
-    public int hashCode() {
-        return 1;
-    }
+//    @Override
+//    public int hashCode() {
+//        int a = (int) Math.random();
+//        return a;
+//    }
+
+
 }
+
