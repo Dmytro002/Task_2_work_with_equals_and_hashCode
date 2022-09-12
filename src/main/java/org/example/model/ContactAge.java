@@ -20,25 +20,17 @@ public class ContactAge extends Contact {
         super(id, firstName, lastName);
         this.age = age;
     }
-    //TODO there is no check for null
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if ( getClass() != o.getClass()) return false;
-//        ContactAge that = (ContactAge) o;
-//        return Objects.equals(age, that.age);
-//    }
+    // there is no check for null
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
 
-    //TODO Transitivity violation
+        if ( getClass() != o.getClass()) return false;
+        ContactAge that = (ContactAge) o;
+        return Objects.equals(age, that.age);
+    }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if(o instanceof Contact && o != null )
-//            if (o instanceof ContactAge){
-//                return super.equals(o) && this.getAge().equals(((ContactAge) o).getAge());
-//            } else return o.equals(this);
-//        return false;
-//    }
+
 
 
 }

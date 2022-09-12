@@ -1,0 +1,28 @@
+package org.example.model;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class ContactReflexiveTest{
+    @Test
+    void ReflexiveViolation(){
+        Contact contact1 = new ContactReflexive(1, "Dmytro","Lozin");
+        Contact contact2 = new ContactReflexive(1, "Dmytro","Svirniuk");
+        assertEquals(contact1, contact2);
+
+    }
+    @Test
+    void ReflexiveViolationWithCollections(){
+        List<ContactReflexive> contactRef = new ArrayList<>();
+        contactRef.add(new ContactReflexive(1, "Dmytro","Lozin"));
+        List<ContactReflexive> contactRef2 = new ArrayList<>();
+        contactRef2.add(new ContactReflexive(1, "Dmytro","Svirniuk"));
+        assertEquals(contactRef, contactRef2);
+
+    }
+
+}

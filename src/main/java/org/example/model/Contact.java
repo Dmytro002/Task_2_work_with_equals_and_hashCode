@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @ToString
@@ -20,58 +22,17 @@ public class Contact {
         this.lastName = lastName;
     }
 
-   //TODO Symmetry violation
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contact contact = (Contact) o;
+        return Objects.equals(id, contact.id) && Objects.equals(firstName, contact.firstName) && Objects.equals(lastName, contact.lastName);
+    }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o instanceof Contact) {
-//            return id.equals(((Contact) o).id);
-//        }
-//        // violation of symmetry, classes of different origin
-//        if (o instanceof Integer) {
-//            return id.equals(o);
-//        }
-//        return false;
-//    }
-
-  //TODO  Reflexive violation
-
-//    public boolean equals(Object o){
-//        if (this == o) {
-//            return false;
-//        }
-//
-//        if (o instanceof Contact && this.id == ((Contact) o).id ) {
-//            return true;
-//        }
-//
-//        return false;
-//    }
-   //TODO for transitivity
-
-//    @Override
-//    public boolean equals(Object o) {
-//       if(o instanceof Contact && o != null){
-//           if(this.getId() == ((Contact)o).getId() && this.getFirstName() == ((Contact)o).getFirstName() && this.getLastName() == ((Contact)o).getLastName())
-//               return true;
-//       }
-//        return false;
-//    }
-
-
-//    @Override
-//    public int hashCode() {
-//        return 0;
-//    }
-
-
-//    @Override
-//    public int hashCode() {
-//        int a = (int) Math.random();
-//        return a;
-//    }
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName);
+    }
 }
 
