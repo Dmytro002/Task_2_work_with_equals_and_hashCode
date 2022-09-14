@@ -3,7 +3,9 @@ package org.example.model;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,6 +43,22 @@ class ContactTest {
         contactHashCode3.add(new Contact(1, "Dmytro","Svirniuk"));
         assertNotEquals(contactHashCode.hashCode(), contactHashCode2.hashCode());
         assertEquals(contactHashCode2.hashCode(), contactHashCode3.hashCode());
+    }
 
+    @Test
+    void goodHashCodeWithHashMap(){
+        Map<Integer,Contact> contactMap = new HashMap<>();
+        contactMap.put(1,new Contact(1, "Dmytro","Loz"));
+        Map<Integer,Contact> contactMap2 = new HashMap<>();
+        contactMap2.put(1, new Contact(1, "Dmytro","Svirniuk"));
+        assertNotEquals(contactMap.hashCode(), contactMap2.hashCode());
+    }
+    @Test
+    void goodHashCodeWithArrayList(){
+        List<Contact> contactHashCodeList = new ArrayList<>();
+        contactHashCodeList.add(new Contact(2, "Dmytro","Loz"));
+        List<Contact> contactHashCodeList1 = new ArrayList<>();
+        contactHashCodeList1.add(new Contact(1, "Dmytro","Svirniuk"));
+        assertNotEquals(contactHashCodeList.hashCode(), contactHashCodeList1.hashCode());
     }
 }
