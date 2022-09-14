@@ -25,7 +25,7 @@ class ContactTest {
     }
 
     @Test
-    void goodEqualsWithCollections(){
+    void goodEqualsWithArrayList(){
         List<Contact> contact = new ArrayList<>();
         contact.add(new Contact(1, "Natalia","Svirniuk"));
         List<Contact> contact2 = new ArrayList<>();
@@ -34,7 +34,15 @@ class ContactTest {
 
     }
     @Test
-    void goodHashCodeWithCollections(){
+    void goodEqualsWithHashMap(){
+        Map<Integer,Contact> contactMap = new HashMap<>();
+        contactMap.put(1,new Contact(1, "Dmytro","Loz"));
+        Map<Integer,Contact> contactMap2 = new HashMap<>();
+        contactMap2.put(1, new Contact(1, "Dmytro","Svirniuk"));
+        assertNotEquals(contactMap, contactMap2);
+    }
+    @Test
+    void goodHashCodeWithArrayList(){
         List<Contact> contactHashCode = new ArrayList<>();
         contactHashCode.add(new Contact(1, "Natalia","Svirniuk"));
         List<Contact> contactHashCode2 = new ArrayList<>();
@@ -52,13 +60,5 @@ class ContactTest {
         Map<Integer,Contact> contactMap2 = new HashMap<>();
         contactMap2.put(1, new Contact(1, "Dmytro","Svirniuk"));
         assertNotEquals(contactMap.hashCode(), contactMap2.hashCode());
-    }
-    @Test
-    void goodHashCodeWithArrayList(){
-        List<Contact> contactHashCodeList = new ArrayList<>();
-        contactHashCodeList.add(new Contact(2, "Dmytro","Loz"));
-        List<Contact> contactHashCodeList1 = new ArrayList<>();
-        contactHashCodeList1.add(new Contact(1, "Dmytro","Svirniuk"));
-        assertNotEquals(contactHashCodeList.hashCode(), contactHashCodeList1.hashCode());
     }
 }
