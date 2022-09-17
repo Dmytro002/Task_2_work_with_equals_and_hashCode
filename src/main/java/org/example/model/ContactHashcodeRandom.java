@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Random;
+
 @Getter
 @Setter
 @ToString
@@ -16,7 +18,6 @@ public class ContactHashcodeRandom extends Contact{
 
     @Override
     public int hashCode() {
-        int a = (int) Math.random();
-        return a;
+        return new Random().nextInt();
     }
 }

@@ -20,6 +20,9 @@ public class ContactAge extends Contact {
         super(id, firstName, lastName);
         this.age = age;
     }
-  
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), age);
+    }
 }

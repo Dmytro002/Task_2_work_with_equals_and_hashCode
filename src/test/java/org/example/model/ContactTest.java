@@ -14,7 +14,7 @@ class ContactTest {
     void goodEquals(){
         Contact contact1 = new Contact(1, "Natalia","Svirniuk");
         Contact contact2 = new Contact(1, "Dmytro","Svirniuk");
-        assertEquals(false, contact1.equals(contact2));
+        assertNotEquals(contact1, contact2);
     }
 
     @Test
@@ -41,24 +41,14 @@ class ContactTest {
         contactMap2.put(1, new Contact(1, "Dmytro","Svirniuk"));
         assertNotEquals(contactMap, contactMap2);
     }
-    @Test
-    void goodHashCodeWithArrayList(){
-        List<Contact> contactHashCode = new ArrayList<>();
-        contactHashCode.add(new Contact(1, "Natalia","Svirniuk"));
-        List<Contact> contactHashCode2 = new ArrayList<>();
-        contactHashCode2.add(new Contact(1, "Dmytro","Svirniuk"));
-        List<Contact> contactHashCode3 = new ArrayList<>();
-        contactHashCode3.add(new Contact(1, "Dmytro","Svirniuk"));
-        assertNotEquals(contactHashCode.hashCode(), contactHashCode2.hashCode());
-        assertEquals(contactHashCode2.hashCode(), contactHashCode3.hashCode());
-    }
+
 
     @Test
     void goodHashCodeWithHashMap(){
-        Map<Integer,Contact> contactMap = new HashMap<>();
-        contactMap.put(1,new Contact(1, "Dmytro","Loz"));
-        Map<Integer,Contact> contactMap2 = new HashMap<>();
-        contactMap2.put(1, new Contact(1, "Dmytro","Svirniuk"));
-        assertNotEquals(contactMap.hashCode(), contactMap2.hashCode());
+        Contact code = new Contact();
+        Map<Contact,String> contactMap = new HashMap<>();
+        contactMap.put(code,"dima");
+        assertEquals( "dima",contactMap.get(code));
+
     }
 }

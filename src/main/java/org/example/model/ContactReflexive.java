@@ -19,7 +19,6 @@ public class ContactReflexive extends Contact{
         if (this == o) {
             return false;
         }
-
         if (o instanceof ContactReflexive && this.getId() == ((Contact) o).getId() ) {
             return true;
         }

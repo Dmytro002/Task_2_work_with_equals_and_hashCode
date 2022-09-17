@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @ToString
@@ -14,12 +16,17 @@ public class ContactAgeTransitivity extends ContactAge{
         super(id, firstName, lastName, age);
     }
 
+    public ContactAgeTransitivity(Integer id, String firstName, String lastName) {
+        super(id, firstName, lastName, null);
+    }
+
     @Override
     public boolean equals(Object o) {
-        if(o instanceof Contact && o != null )
-            if (o instanceof ContactAge){
-                return super.equals(o) && this.getAge().equals(((ContactAge) o).getAge());
-            } else return o.equals(this);
-        return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactAgeTransitivity contact = (ContactAgeTransitivity) o;
+        return Objects.equals(getId(), contact.getId()) && Objects.equals(getFirstName(), contact.getFirstName())
+                && Objects.equals(getLastName(), contact.getLastName()) && ( getAge() == null ||
+                contact.getAge()==null || Objects.equals(getAge(), contact.getAge()));
     }
 }

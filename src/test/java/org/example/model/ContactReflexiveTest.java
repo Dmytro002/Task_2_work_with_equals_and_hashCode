@@ -26,14 +26,6 @@ class ContactReflexiveTest{
         assertEquals(contactRef, contactRef2);
 
     }
-    @Test
-    void ReflexiveViolationWithHashMap(){
-        Map<Integer, ContactReflexive> contactReflexiveMap = new HashMap<>();
-        contactReflexiveMap.put(1,new ContactReflexive(1, "Dmytro","LOZ"));
 
-        Map<Integer, ContactReflexive> contactReflexiveMap1 = new HashMap<>();
-        contactReflexiveMap1.put(1,new ContactReflexive(1, "Dmytro","Svirniuk"));
-        assertEquals(contactReflexiveMap1, contactReflexiveMap);
-    }
 
 }
